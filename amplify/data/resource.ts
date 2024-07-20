@@ -10,9 +10,9 @@ const schema = a.schema({
   Todo: a
     .model({
       content: a.string(),
-
+      isDone: a.boolean(), // Added isDone field
     })
-    .authorization((allow) => [allow.owner()]),
+    .authorization((allow) => [allow.owner()]), // Ensures tasks are only accessible by their owners
 });
 
 export type Schema = ClientSchema<typeof schema>;
